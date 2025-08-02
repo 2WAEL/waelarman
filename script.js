@@ -172,13 +172,11 @@ const translations = {
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
-  // Hide loading screen after 2 seconds
+  // Hide loading screen immediately (no loading delay)
+  loadingScreen.classList.add('hidden');
   setTimeout(() => {
-    loadingScreen.classList.add('hidden');
-    setTimeout(() => {
-      loadingScreen.style.display = 'none';
-    }, 500);
-  }, 2000);
+    loadingScreen.style.display = 'none';
+  }, 300);
   
   // Initialize language
   switchLang('en');
