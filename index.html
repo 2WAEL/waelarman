@@ -4,265 +4,399 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wael Mohamed Arman | Personal Website</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(-45deg, #ffffff, #005f8f, #e0f7ff, #0090b0);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease-in-out infinite;
-      color: #222;
-      transition: all 0.3s ease-in-out;
-    }
-    header {
-      background: linear-gradient(-45deg, #ffffff, #005f8f, #e0f7ff, #0090b0);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease-in-out infinite;
-      color: white;
-      text-align: center;
-      padding: 60px 20px 40px;
-      position: relative;
-      animation: fadeIn 2s ease-in-out;
-    }
-    header img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 2px solid white;
-      object-fit: cover;
-      margin-bottom: 15px;
-      animation: float 3s ease-in-out infinite;
-    }
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 2.5em;
-      animation: slideInDown 1s ease-in-out;
-    }
-    header p {
-      margin: 0;
-      font-size: 1.3em;
-      animation: slideInDown 1.5s ease-in-out;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background-color: #fff;
-      border-bottom: 1px solid #ccc;
-      padding: 10px;
-    }
-    nav button {
-      padding: 8px 16px;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background-color: #0077b6;
-      color: white;
-      transition: background-color 0.3s;
-    }
-    nav button:hover {
-      background-color: #0096c7;
-    }
-    section {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-      opacity: 0;
-      animation: fadeIn 1.5s forwards;
-      animation-delay: 1s;
-    }
-    h2 {
-      border-bottom: 2px solid #00b4d8;
-      padding-bottom: 5px;
-      color: #0077b6;
-    }
-    ul {
-      padding: 0 20px;
-    }
-    .contact, footer {
-      background-color: #e3f2fd;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      background-color: #0077b6;
-      color: white;
-      margin-top: 40px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideInDown {
-      from { transform: translateY(-30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  25% { background-position: 50% 60%; }
-  50% { background-position: 100% 50%; }
-  75% { background-position: 50% 40%; }
-  100% { background-position: 0% 50%; }
-}
-  20% { background-position: 20% 60%; }
-  40% { background-position: 40% 40%; }
-  60% { background-position: 60% 60%; }
-  80% { background-position: 80% 40%; }
-  100% { background-position: 100% 50%; }
-}
-      25% { background-position: 50% 50%; }
-      50% { background-position: 100% 50%; }
-      75% { background-position: 50% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <img src="img/Screenshot 2025-08-02 055934.png" alt="Wael's Photo" id="profile-pic">
-    <h1 id="hero-name">Wael Mohamed Arman</h1>
-    <p id="hero-title">Customer Service & E-Marketing Specialist</p>
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader"></div>
+    <p>Loading...</p>
+  </div>
+
+  <header class="hero-section">
+    <div class="hero-background">
+      <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="profile-container">
+        <img src="img/Screenshot 2025-08-02 055934.png" alt="Wael's Photo" id="profile-pic" class="profile-image">
+        <div class="profile-overlay">
+          <i class="fas fa-camera"></i>
+        </div>
+      </div>
+      
+      <h1 id="hero-name" class="hero-title">Wael Mohamed Arman</h1>
+      <p id="hero-title" class="hero-subtitle">Customer Service & E-Marketing Specialist</p>
+      
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="scrollToSection('about')">
+          <i class="fas fa-user"></i>
+          <span id="about-btn-text">About Me</span>
+        </button>
+        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+          <i class="fas fa-envelope"></i>
+          <span id="contact-btn-text">Contact</span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <button onclick="switchLang('ar')">العربية</button>
-    <button onclick="switchLang('en')">English</button>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span id="nav-brand-text">Wael Arman</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <button class="nav-link" onclick="scrollToSection('about')">
+          <i class="fas fa-user"></i>
+          <span id="nav-about-text">About</span>
+        </button>
+        <button class="nav-link" onclick="scrollToSection('experience')">
+          <i class="fas fa-briefcase"></i>
+          <span id="nav-exp-text">Experience</span>
+        </button>
+        <button class="nav-link" onclick="scrollToSection('skills')">
+          <i class="fas fa-tools"></i>
+          <span id="nav-skills-text">Skills</span>
+        </button>
+        <button class="nav-link" onclick="scrollToSection('education')">
+          <i class="fas fa-graduation-cap"></i>
+          <span id="nav-edu-text">Education</span>
+        </button>
+        <button class="nav-link" onclick="scrollToSection('contact')">
+          <i class="fas fa-envelope"></i>
+          <span id="nav-contact-text">Contact</span>
+        </button>
+      </div>
+      
+      <div class="nav-language">
+        <button class="lang-btn active" onclick="switchLang('en')" id="en-btn">
+          <i class="fas fa-globe"></i>
+          EN
+        </button>
+        <button class="lang-btn" onclick="switchLang('ar')" id="ar-btn">
+          <i class="fas fa-globe"></i>
+          عربي
+        </button>
+      </div>
+      
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" title="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
 
-  <section id="content">
-    <!-- Content will load dynamically -->
-  </section>
+  <main class="main-content">
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="about-title" class="section-title">
+            <i class="fas fa-user"></i>
+            <span id="about-title-text">About Me</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="about-content">
+          <div class="about-text">
+            <p id="about-description">
+              I am an enthusiastic professional in customer service and digital marketing, with a growing interest in programming and web development. I have strong experience in team management and enhancing customer experience. I enjoy using marketing tools, managing social media pages, and creating appealing content.
+            </p>
+          </div>
+          
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">5+</div>
+              <div class="stat-label" id="years-exp">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100+</div>
+              <div class="stat-label" id="projects">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label" id="clients">Happy Clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 <span id="footer-name">Wael Mohamed Arman</span>. All rights reserved.
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="experience-title" class="section-title">
+            <i class="fas fa-briefcase"></i>
+            <span id="experience-title-text">Professional Experience</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 id="exp-1-title">Admin and CC Leader - Dacktra App</h3>
+              <p class="timeline-period" id="exp-1-period">2024–2025</p>
+              <p id="exp-1-desc">Leading customer service operations and managing call center activities for the Dacktra application.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 id="exp-2-title">Assistant Customer Service Manager - Al Agha Restaurant</h3>
+              <p class="timeline-period" id="exp-2-period">2023–2024</p>
+              <p id="exp-2-desc">Assisted in managing customer service operations and team coordination.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 id="exp-3-title">Call Center Supervisor - Al Agha Restaurant</h3>
+              <p class="timeline-period" id="exp-3-period">2022–2023</p>
+              <p id="exp-3-desc">Supervised call center operations and ensured quality customer service delivery.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 id="exp-4-title">Online & Delivery Supervisor - Al Agha Restaurant</h3>
+              <p class="timeline-period" id="exp-4-period">2021–2022</p>
+              <p id="exp-4-desc">Managed online orders and delivery operations for the restaurant.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3 id="exp-5-title">Accountant - Electro Hani Company</h3>
+              <p class="timeline-period" id="exp-5-period">2022–2023</p>
+              <p id="exp-5-desc">Handled accounting responsibilities and financial record keeping.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="skills-title" class="section-title">
+            <i class="fas fa-tools"></i>
+            <span id="skills-title-text">Skills</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3 id="skill-1-title">Communication & Problem Solving</h3>
+            <p id="skill-1-desc">Excellent communication skills with proven ability to resolve complex customer issues.</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 id="skill-2-title">Data Analysis & Performance Improvement</h3>
+            <p id="skill-2-desc">Skilled in analyzing performance metrics and implementing improvement strategies.</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 id="skill-3-title">Training & Team Development</h3>
+            <p id="skill-3-desc">Experience in training team members and developing their professional skills.</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <h3 id="skill-4-title">Social Media & Logo Design</h3>
+            <p id="skill-4-desc">Proficient in managing social media platforms and creating visual content.</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-desktop"></i>
+            </div>
+            <h3 id="skill-5-title">Microsoft Office Suite</h3>
+            <p id="skill-5-desc">Full proficiency in Word, Excel, PowerPoint, and Outlook applications.</p>
+          </div>
+          
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 id="skill-6-title">Web Development</h3>
+            <p id="skill-6-desc">Growing interest and skills in programming and web development technologies.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="education-title" class="section-title">
+            <i class="fas fa-graduation-cap"></i>
+            <span id="education-title-text">Education & Courses</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="education-grid">
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="education-content">
+              <h3 id="edu-1-title">Bachelor's Degree in Physics</h3>
+              <p id="edu-1-school">Damascus University</p>
+              <p id="edu-1-year">2024</p>
+            </div>
+          </div>
+          
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="education-content">
+              <h3 id="edu-2-title">Customer Service Course</h3>
+              <p id="edu-2-school">Professional Training</p>
+              <p id="edu-2-year">2023</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="contact-title" class="section-title">
+            <i class="fas fa-envelope"></i>
+            <span id="contact-title-text">Contact Me</span>
+          </h2>
+          <div class="section-line"></div>
+        </div>
+        
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h3 id="email-label">Email</h3>
+                <p>waeladiga162@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fab fa-whatsapp"></i>
+              </div>
+              <div class="contact-details">
+                <h3 id="phone-label">Phone / WhatsApp</h3>
+                <p>+201126541143</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h3 id="address-label">Address</h3>
+                <p id="address-text">Giza, Egypt - El Qawmiya, Kamal Wahba El Kholy Street</p>
+              </div>
+            </div>
+          </div>
+          
+                                                                                                           <div class="contact-form">
+                    <form id="contactForm" action="https://formspree.io/f/mvgqbzwj" method="POST">
+                     <div class="form-group">
+                       <input type="text" id="name" name="name" placeholder="Your Name" required>
+                     </div>
+                     <div class="form-group">
+                       <input type="email" id="email" name="email" placeholder="Your Email" required>
+                     </div>
+                     <div class="form-group">
+                       <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                     </div>
+                     <div class="form-group">
+                       <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                     </div>
+                     
+                     <!-- Hidden fields for Formspree -->
+                     <input type="hidden" name="_subject" value="رسالة جديدة من موقع وائل الشخصي">
+                     <input type="hidden" name="_next" value="https://waeladiga162.github.io/">
+                     <input type="hidden" name="_captcha" value="false">
+                     <input type="hidden" name="_template" value="table">
+                     
+                     <button type="submit" class="btn btn-primary">
+                       <i class="fas fa-paper-plane"></i>
+                       <span id="send-btn-text">Send Message</span>
+                     </button>
+                   </form>
+                 </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 id="footer-name">Wael Mohamed Arman</h3>
+          <p id="footer-desc">Customer Service & E-Marketing Specialist</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4 id="footer-contact-title">Contact</h4>
+          <p>waeladiga162@gmail.com</p>
+          <p>+201126541143</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4 id="footer-follow-title">Follow Me</h4>
+          <div class="social-links">
+            <a href="https://web.facebook.com/wael.araman/about?locale=ar_AR" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/adiga_klaghstan/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/+201126541143" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 <span id="footer-copyright-name">Wael Mohamed Arman</span>. <span id="footer-rights">All rights reserved.</span></p>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    const content = document.getElementById('content');
-    const heroName = document.getElementById('hero-name');
-    const heroTitle = document.getElementById('hero-title');
-    const footerName = document.getElementById('footer-name');
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top" title="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    const arabicContent = `
-      <section>
-        <h2>من أنا</h2>
-        <p>أنا متخصص متحمس في خدمة العملاء والتسويق الرقمي، وأهتم أيضًا بالبرمجة وتطوير الويب. أتمتع بخبرة قوية في إدارة الفرق وتحسين تجربة العملاء، وأحب استخدام أدوات التسويق الرقمية، وإدارة صفحات السوشيال ميديا، وتصميم المحتوى الجذاب.</p>
-      </section>
-      <section>
-        <h2>الخبرات المهنية</h2>
-        <ul>
-          <li>مسؤول مركز اتصال وتطبيق دكاترة (2024–2025)</li>
-          <li>مساعد مدير خدمة عملاء - مطعم الأغا (2023–2024)</li>
-          <li>مشرف كول سنتر - مطعم الأغا (2022–2023)</li>
-          <li>مشرف توصيل ومنصات أونلاين - مطعم الأغا (2021–2022)</li>
-          <li>محاسب - شركة الكترو هاني (2022–2023)</li>
-        </ul>
-      </section>
-      <section>
-        <h2>المهارات</h2>
-        <ul>
-          <li>التواصل وحل المشكلات</li>
-          <li>تحليل البيانات وتحسين الأداء</li>
-          <li>التدريب وتطوير الفريق</li>
-          <li>تصميم الشعار وإدارة السوشيال ميديا</li>
-          <li>إتقان حزمة Microsoft Office الكاملة (Word, Excel, PowerPoint, Outlook)</li>
-        </ul>
-      </section>
-      <section>
-        <h2>التعليم والدورات</h2>
-        <ul>
-          <li>بكالوريوس في الفيزياء - جامعة دمشق (2024)</li>
-          <li>دورة في خدمة العملاء</li>
-        </ul>
-      </section>
-      <section class="contact">
-        <h2>تواصل معي</h2>
-        <p><strong>البريد الإلكتروني:</strong> waeladiga162@gmail.com</p>
-        <p><strong>الهاتف / واتساب:</strong> +201126541143</p>
-        <p><strong>العنوان:</strong> الجيزة - القومية - شارع كمال وهبة الخولي</p>
-      </section>
-    `;
-
-    const englishContent = `
-      <section>
-        <h2>About Me</h2>
-        <p>I am an enthusiastic professional in customer service and digital marketing, with a growing interest in programming and web development. I have strong experience in team management and enhancing customer experience. I enjoy using marketing tools, managing social media pages, and creating appealing content.</p>
-      </section>
-      <section>
-        <h2>Professional Experience</h2>
-        <ul>
-          <li>Admin and CC Leader - Dacktra App (2024–2025)</li>
-          <li>Assistant Customer Service Manager - Al Agha Restaurant (2023–2024)</li>
-          <li>Call Center Supervisor - Al Agha Restaurant (2022–2023)</li>
-          <li>Online & Delivery Supervisor - Al Agha Restaurant (2021–2022)</li>
-          <li>Accountant - Electro Hani Company (2022–2023)</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Skills</h2>
-        <ul>
-          <li>Communication & Problem Solving</li>
-          <li>Data Analysis & Performance Improvement</li>
-          <li>Training & Team Development</li>
-          <li>Social Media & Logo Design</li>
-          <li>Full Microsoft Office Suite Proficiency (Word, Excel, PowerPoint, Outlook)</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Education & Courses</h2>
-        <ul>
-          <li>Bachelor's Degree in Physics - Damascus University (2024)</li>
-          <li>Customer Service Course</li>
-        </ul>
-      </section>
-      <section class="contact">
-        <h2>Contact</h2>
-        <p><strong>Email:</strong> waeladiga162@gmail.com</p>
-        <p><strong>Phone / WhatsApp:</strong> +201126541143</p>
-        <p><strong>Address:</strong> Giza, Egypt - El Qawmiya, Kamal Wahba El Kholy Street</p>
-      </section>
-    `;
-
-    function switchLang(lang) {
-      if (lang === 'ar') {
-        document.body.setAttribute('dir', 'rtl');
-        document.documentElement.setAttribute('lang', 'ar');
-        heroName.textContent = 'وائل محمد أرمَن';
-        heroTitle.textContent = 'أخصائي خدمة عملاء وتسويق إلكتروني';
-        footerName.textContent = 'وائل محمد أرمَن';
-        content.innerHTML = arabicContent;
-      } else {
-        document.body.setAttribute('dir', 'ltr');
-        document.documentElement.setAttribute('lang', 'en');
-        heroName.textContent = 'Wael Mohamed Arman';
-        heroTitle.textContent = 'Customer Service & E-Marketing Specialist';
-        footerName.textContent = 'Wael Mohamed Arman';
-        content.innerHTML = englishContent;
-      }
-    }
-
-    switchLang('en');
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
