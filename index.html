@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wael Mohamed Arman | Personal Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #f0f8ff;
+      color: #222;
+      transition: all 0.3s ease-in-out;
+    }
+    header {
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 40px;
+      position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 2px solid white;
+      object-fit: cover;
+      margin-bottom: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 2.5em;
+      animation: slideInDown 1s ease-in-out;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.3em;
+      animation: slideInDown 1.5s ease-in-out;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+    }
+    nav button {
+      padding: 8px 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #0077b6;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    nav button:hover {
+      background-color: #0096c7;
+    }
+    section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      opacity: 0;
+      animation: fadeIn 1.5s forwards;
+      animation-delay: 1s;
+    }
+    h2 {
+      border-bottom: 2px solid #00b4d8;
+      padding-bottom: 5px;
+      color: #0077b6;
+    }
+    ul {
+      padding: 0 20px;
+    }
+    .contact, footer {
+      background-color: #e3f2fd;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    footer {
+      text-align: center;
+      background-color: #0077b6;
+      color: white;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/Screenshot 2025-08-02 055934.png" alt="Wael's Photo" id="profile-pic">
+    <h1 id="hero-name">Wael Mohamed Arman</h1>
+    <p id="hero-title">Customer Service & E-Marketing Specialist</p>
+  </header>
+
+  <nav>
+    <button onclick="switchLang('ar')">العربية</button>
+    <button onclick="switchLang('en')">English</button>
+  </nav>
+
+  <section id="content">
+    <!-- Content will load dynamically -->
+  </section>
+
+  <footer>
+    &copy; 2025 <span id="footer-name">Wael Mohamed Arman</span>. All rights reserved.
+  </footer>
+
+  <script>
+    const content = document.getElementById('content');
+    const heroName = document.getElementById('hero-name');
+    const heroTitle = document.getElementById('hero-title');
+    const footerName = document.getElementById('footer-name');
+
+    const arabicContent = `
+      <section>
+        <h2>من أنا</h2>
+        <p>أنا متخصص متحمس في خدمة العملاء والتسويق الرقمي، أتمتع بخبرة قوية في إدارة الفرق وتحسين تجربة العملاء. أحب استخدام أدوات التسويق الرقمية، وإدارة صفحات السوشيال ميديا، وتصميم المحتوى الجذاب.</p>
+      </section>
+      <section>
+        <h2>الخبرات المهنية</h2>
+        <ul>
+          <li>مسؤول مركز اتصال وتطبيق دكاترة (2024–2025)</li>
+          <li>مساعد مدير خدمة عملاء - مطعم الأغا (2023–2024)</li>
+          <li>مشرف كول سنتر - مطعم الأغا (2022–2023)</li>
+          <li>مشرف توصيل ومنصات أونلاين - مطعم الأغا (2021–2022)</li>
+          <li>محاسب - شركة الكترو هاني (2022–2023)</li>
+        </ul>
+      </section>
+      <section>
+        <h2>المهارات</h2>
+        <ul>
+          <li>التواصل وحل المشكلات</li>
+          <li>تحليل البيانات وتحسين الأداء</li>
+          <li>التدريب وتطوير الفريق</li>
+          <li>تصميم الشعار وإدارة السوشيال ميديا</li>
+          <li>إتقان حزمة Microsoft Office الكاملة (Word, Excel, PowerPoint, Outlook)</li>
+        </ul>
+      </section>
+      <section>
+        <h2>التعليم والدورات</h2>
+        <ul>
+          <li>بكالوريوس في الفيزياء - جامعة دمشق (2024)</li>
+          <li>دورة في خدمة العملاء</li>
+        </ul>
+      </section>
+      <section class="contact">
+        <h2>تواصل معي</h2>
+        <p><strong>البريد الإلكتروني:</strong> waeladiga162@gmail.com</p>
+        <p><strong>الهاتف / واتساب:</strong> +201126541143</p>
+        <p><strong>العنوان:</strong> الجيزة - القومية - شارع كمال وهبة الخولي</p>
+      </section>
+    `;
+
+    const englishContent = `
+      <section>
+        <h2>About Me</h2>
+        <p>I am an enthusiastic professional in customer service and digital marketing with strong experience in team management and enhancing customer experience. I enjoy using marketing tools, managing social media pages, and creating appealing content.</p>
+      </section>
+      <section>
+        <h2>Professional Experience</h2>
+        <ul>
+          <li>Admin and CC Leader - Dacktra App (2024–2025)</li>
+          <li>Assistant Customer Service Manager - Al Agha Restaurant (2023–2024)</li>
+          <li>Call Center Supervisor - Al Agha Restaurant (2022–2023)</li>
+          <li>Online & Delivery Supervisor - Al Agha Restaurant (2021–2022)</li>
+          <li>Accountant - Electro Hani Company (2022–2023)</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>Communication & Problem Solving</li>
+          <li>Data Analysis & Performance Improvement</li>
+          <li>Training & Team Development</li>
+          <li>Social Media & Logo Design</li>
+          <li>Full Microsoft Office Suite Proficiency (Word, Excel, PowerPoint, Outlook)</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Education & Courses</h2>
+        <ul>
+          <li>Bachelor's Degree in Physics - Damascus University (2024)</li>
+          <li>Customer Service Course</li>
+        </ul>
+      </section>
+      <section class="contact">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> waeladiga162@gmail.com</p>
+        <p><strong>Phone / WhatsApp:</strong> +201126541143</p>
+        <p><strong>Address:</strong> Giza, Egypt - El Qawmiya, Kamal Wahba El Kholy Street</p>
+      </section>
+    `;
+
+    function switchLang(lang) {
+      if (lang === 'ar') {
+        document.body.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        heroName.textContent = 'وائل محمد أرمَن';
+        heroTitle.textContent = 'أخصائي خدمة عملاء وتسويق إلكتروني';
+        footerName.textContent = 'وائل محمد أرمَن';
+        content.innerHTML = arabicContent;
+      } else {
+        document.body.setAttribute('dir', 'ltr');
+        document.documentElement.setAttribute('lang', 'en');
+        heroName.textContent = 'Wael Mohamed Arman';
+        heroTitle.textContent = 'Customer Service & E-Marketing Specialist';
+        footerName.textContent = 'Wael Mohamed Arman';
+        content.innerHTML = englishContent;
+      }
+    }
+
+    switchLang('en');
+  </script>
+</body>
+</html>
